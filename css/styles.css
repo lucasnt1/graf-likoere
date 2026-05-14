@@ -333,16 +333,17 @@ p { margin: 0; }
 
 :root {
   --ticker-height: clamp(56px, 9vw, 78px);
+  --ticker-offset: max(14px, env(safe-area-inset-bottom));
 }
 body {
-  padding-bottom: calc(var(--ticker-height) + 14px);
+  padding-bottom: calc(var(--ticker-height) + var(--ticker-offset) + 10px);
 }
 .contact-ticker {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 14px;
-  z-index: 9999;
+  bottom: var(--ticker-offset);
+  z-index: 2147483647;
   height: var(--ticker-height);
   overflow: hidden;
   display: flex;
@@ -356,6 +357,10 @@ body {
   font-weight: 800;
   letter-spacing: 0.06em;
   white-space: nowrap;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint;
+  -webkit-transform: translateZ(0);
 }
 .contact-ticker-track {
   display: flex;
@@ -527,4 +532,11 @@ h1 {
 }
 .contact-ticker a:hover {
   text-decoration: underline;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .contact-ticker {
+    position: fixed;
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
 }
