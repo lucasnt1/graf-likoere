@@ -540,3 +540,118 @@ h1 {
     bottom: max(14px, env(safe-area-inset-bottom));
   }
 }
+
+/* Legal / Impressum page */
+.legal-page {
+  background: var(--paper);
+  color: var(--ink);
+}
+.legal-hero {
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(37, 24, 21, 0.92), rgba(7, 31, 61, 0.76)),
+    url("../assets/l1.webp") center/cover;
+  padding-bottom: 86px;
+}
+.legal-nav-links {
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-body);
+  font-weight: 800;
+}
+.legal-nav-links a {
+  color: #fff9f0;
+  text-decoration: none;
+}
+.legal-nav-links a:hover {
+  color: var(--gold);
+}
+.legal-hero-copy {
+  width: min(980px, calc(100% - 32px));
+  margin: 64px auto 0;
+}
+.legal-hero-copy h1 {
+  font-size: clamp(3rem, 8vw, 5.3rem);
+}
+.legal-hero-copy p:last-child {
+  max-width: 720px;
+  margin-top: 18px;
+  color: rgba(255,255,255,0.86);
+  font-family: var(--font-body);
+  font-size: 1.12rem;
+}
+.legal-main {
+  width: min(980px, calc(100% - 32px));
+  margin: -48px auto 100px;
+  display: grid;
+  gap: 18px;
+}
+.legal-card,
+.legal-note {
+  position: relative;
+  background: rgba(255, 249, 240, 0.96);
+  border: 1px solid rgba(7, 31, 61, 0.1);
+  padding: 30px;
+  box-shadow:
+    0 18px 28px rgba(37, 24, 21, 0.13),
+    0 36px 90px rgba(37, 24, 21, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+.legal-card h2,
+.legal-note h2 {
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  margin-bottom: 16px;
+}
+.legal-card p,
+.legal-note p,
+.legal-list {
+  font-family: var(--font-body);
+  color: var(--muted);
+}
+.legal-list {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.legal-list div {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(7, 31, 61, 0.1);
+}
+.legal-list div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.legal-list dt {
+  font-weight: 800;
+  color: #071f3d;
+}
+.legal-list dd {
+  margin: 0;
+}
+.legal-card a,
+.legal-note a:not(.button) {
+  color: #071f3d;
+  font-weight: 800;
+}
+.legal-note .button {
+  margin-top: 22px;
+}
+@media (max-width: 720px) {
+  .legal-nav-links {
+    display: none;
+  }
+  .legal-main {
+    margin-top: -34px;
+  }
+  .legal-card,
+  .legal-note {
+    padding: 24px;
+  }
+  .legal-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
