@@ -390,36 +390,36 @@ p { margin: 0; }
 .footer a { color: var(--rose); text-decoration: none; font-weight: 700; }
 
 @media (max-width: 900px) {
-  .nav { position: relative; }
+  .nav {
+    position: relative;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px 0 10px;
+  }
   .nav-toggle {
-    display: inline-flex;
-    width: 44px;
-    height: 44px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    border: 1px solid rgba(255,255,255,0.45);
-    background: rgba(255,255,255,0.08);
+    display: none;
   }
   .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--white); margin: 0 auto; }
   .nav-links {
-    display: none;
-    position: absolute;
-    top: 76px;
-    right: 0;
-    left: 0;
-    padding: 18px;
-    background: rgba(37, 24, 21, 0.96);
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    position: static;
+    flex: 0 0 100%;
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    padding: 4px 0 0;
+    background: transparent;
+    align-items: center;
   }
   .nav-image-link {
-    width: min(100%, 560px);
+    width: 100%;
+    min-width: 0;
+    padding: 2px;
   }
   .nav-image-link img {
-    max-height: 144px;
+    max-height: 58px;
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open { display: grid; }
   .hero { grid-template-columns: 1fr; padding-top: 20px; }
   .hero-media { transform: none; max-width: 620px; }
   .intro-band, .split, .product-grid, .timeline, .price-grid, .info-card-grid, .exchange { grid-template-columns: 1fr; }
@@ -431,6 +431,23 @@ p { margin: 0; }
 
 @media (max-width: 560px) {
   .site-header { min-height: auto; }
+  .nav {
+    width: min(100% - 20px, 1180px);
+  }
+  .brand {
+    font-size: 1rem;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+  }
+  .nav-links {
+    gap: 6px;
+  }
+  .nav-image-link img {
+    max-height: 42px;
+  }
   h1 { font-size: 2.75rem; }
   h2 { font-size: 2rem; }
   .hero { min-height: auto; padding-bottom: 86px; }
